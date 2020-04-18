@@ -14,7 +14,7 @@ class App extends React.Component<PropsButton, StateButton> {
     super(props);
 
     this.state = {
-      screen: 2,
+      screen: 1,
     }
   }
 

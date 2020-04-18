@@ -70,6 +70,15 @@ class ScreenTwo extends React.Component<PropsButton, StateButton> {
           </form>
 
           <button type="button" className="btn btn-outline-primary">Upload an image</button>
+
+          <div className="divDes">
+            <span className="spanDes">Due Time (Asia/SG)</span>
+            <p className="pTime">Due Time (Asia/SG)</p>
+          </div>
+
+          <div>
+            <button type="button" className="btn btn-primary">Submit</button>
+          </div>
         </div>
       </div>
     )
