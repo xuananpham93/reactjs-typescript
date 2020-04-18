@@ -1,26 +1,70 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import ScreenOne from './screens/ScreenOne';
+import ScreenTwo from './screens/ScreenTwo';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface StateButton {
+  screen: Number,
+}
+interface PropsButton {
+
+}
+class App extends React.Component<PropsButton, StateButton> {
+  constructor(props: PropsButton) {
+    super(props);
+
+    this.state = {
+      screen: 2,
+    }
+  }
+
+  handleScreenOneClick = () => {
+    this.setState({
+      screen: 1
+    });
+  }
+
+  handleScreenTwoClick = () => {
+    this.setState({
+      screen: 2
+    });
+  }
+
+  renderScreens = () => {
+    const { screen } = this.state;
+
+    switch (screen) {
+      case 1:
+        return (
+          <ScreenOne />
+        );
+
+      case 2:
+        return (
+          <ScreenTwo />
+        );
+
+      default:
+        return null;
+    }
+
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <div>
+          <br />
+          <button onClick={this.handleScreenOneClick} type="button" className="btn btn-info">Screen One</button>
+          <br />
+          <br />
+          <button onClick={this.handleScreenTwoClick} type="button" className="btn btn-info">Screen Two</button>
+        </div>
+
+        {this.renderScreens()}
+      </div>
+    );
+  }
 }
 
 export default App;
